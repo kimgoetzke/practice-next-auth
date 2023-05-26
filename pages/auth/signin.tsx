@@ -7,16 +7,17 @@ import Layout from "../../components/layout";
 export default function SignIn({ providers }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
-    <Layout>
-    <h1>Identity provider</h1>
-    <p>This is a custom identity provider selection page. Please select provider:</p>
-      {Object.values(providers).map((provider) => (
-        <div key={provider.name}>
-          <button className="primaryButton" onClick={() => signIn(provider.id)}>
-            Sign in with {provider.name}
-          </button>
-        </div>
-      ))}
+      <Layout>
+        <h1>Identity provider</h1>
+        <p>This is a custom identity provider selection page. Please select provider:</p>
+        {Object.values(providers).map((provider) => (
+          <div key={provider.name}>
+            <button className="primaryButton" onClick={() => signIn(provider.id)}>
+              Sign in with {provider.name}
+            </button>
+            <br/><br/>
+          </div>
+        ))}
       </Layout>
     </>
   )
@@ -24,14 +25,14 @@ export default function SignIn({ providers }: InferGetServerSidePropsType<typeof
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession(context.req, context.res, authOptions);
-  
+
   // If the user is already logged in, redirect
   if (session) {
     return { redirect: { destination: "/" } };
   }
 
   const providers = await getProviders();
-  
+
   return {
     props: { providers: providers ?? [] },
   }

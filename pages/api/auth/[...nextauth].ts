@@ -1,6 +1,7 @@
 import { randomBytes, randomUUID } from "crypto"
 import NextAuth, { NextAuthOptions } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
+import CognitoProvider from "next-auth/providers/cognito"
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -15,10 +16,14 @@ export const authOptions: NextAuthOptions = {
         }
       }
     }),
+    CognitoProvider({
+      clientId: process.env.COGNITO_ID,
+      clientSecret: process.env.COGNITO_SECRET,
+      issuer: process.env.COGNITO_ISSUER_URL,
+    }),
   ],
   pages: {
-    signIn: '/auth/signin',
-    newUser: '/auth/new-user'
+    signIn: '/auth/signin'
   },
   session: {
     // Learn more about sessions: 
@@ -26,9 +31,9 @@ export const authOptions: NextAuthOptions = {
     strategy: 'jwt',
     maxAge: 60 * 5,
     generateSessionToken: () => {
-      return randomUUID?.() ?? randomBytes(32).toString("hex")
+      return "SESH~" + randomUUID?.()
     }
-   },
+  },
   callbacks: {
     // Learn more about refresh token rotations here: 
     // https://authjs.dev/guides/basics/refresh-token-rotation
