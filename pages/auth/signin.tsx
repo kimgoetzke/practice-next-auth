@@ -8,11 +8,11 @@ export default function SignIn({ providers }: InferGetServerSidePropsType<typeof
   return (
     <>
       <Layout>
-        <h1>Identity provider</h1>
-        <p>This is a custom identity provider selection page. Please select provider:</p>
+        <h1 className="default">Identity provider</h1>
+        <p className="default">This is a custom identity provider selection page. Please select provider:</p>
         {Object.values(providers).map((provider) => (
           <div key={provider.name}>
-            <button className="primaryButton" onClick={() => signIn(provider.id)}>
+            <button className="default" onClick={() => signIn(provider.id)}>
               Sign in with {provider.name}
             </button>
             <br/><br/>

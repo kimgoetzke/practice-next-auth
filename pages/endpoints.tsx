@@ -28,14 +28,12 @@ export default function Endpoints() {
 
   return (
     <Layout>
-      <h1>Endpoints</h1>
-      <p>
-        <em>You must be signed in to see responses.</em>
-      </p>
-      <h2>Session</h2>
+      <h1 className="default" >Endpoints</h1>
+      <p className="default">You must be signed in to see responses.</p>
+      <h2 className="default" >Session</h2>
       <pre>/api/examples/session</pre>
       <pre className="code"><code>{JSON.stringify(sessionContent, null, 2)}</code></pre>
-      <h2>JWT</h2>
+      <h2 className="default" >JWT</h2>
       <pre>/api/examples/jwt</pre>
       <pre className="code"><code>{JSON.stringify(jwtContent, null, 2)}</code></pre>
     </Layout>

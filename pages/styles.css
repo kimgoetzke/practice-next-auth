@@ -1,54 +1,29 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.main {
-  width: 100vw;
-  min-height: 100vh;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  padding: 120px 24px 160px 24px;
-  pointer-events: none;
+a.default {
+  @apply hover:text-sky-500 dark:text-sky-300 underline decoration-sky-500 font-bold
 }
 
-.gradient {
-  height: fit-content;
-  z-index: 3;
-  width: 100%;
-  max-width: 100%;
-  background-image: radial-gradient(
-      at 0% 0%,
-      rgb(165, 238, 225) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 50% 50%, rgb(206, 209, 150) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgb(42, 54, 116) 0px, transparent 50%);
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  opacity: 0.4;
+a.navbar-item {
+  @apply text-lg items-center justify-center uppercase text-white font-black mt-0 pt-0
 }
 
-.warning {
-  position: relative;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 5px;
-  background-color:#ffdfdf;
-  border-radius: 0.5rem;
+svg.navbar-item {
+  @apply w-12 h-12 stroke-2 group-hover/navbar-item:scale-90 group-hover/navbar-item:-translate-y-4 mx-auto justify-center transition duration-300 ease-in-out
 }
 
-.blue_gradient {
-  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+h1.default {
+  @apply text-4xl font-bold py-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-indigo-700
 }
 
-.set-font {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+h2.default {
+  @apply text-xl font-bold pt-4 pb-2 text-gray-900 dark:text-gray-100
+}
+
+p {
+  @apply text-gray-700 dark:text-gray-300 py-4 font-normal
+}
+
+button.default {
+  @apply bg-sky-500 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded-full shadow-md hover:scale-110 hover:shadow-lg transition duration-300 ease-in-out
 }
 
 pre {
@@ -62,8 +37,8 @@ pre.code {
   margin: 5px 0;
   padding: 10px;
   border-radius: 5px;
-  background-color:#3f3f3f;
-  border: 1px solid #FFFFFF;
+  background-color: #3f3f3f;
+  border: 1px solid #ffffff;
   border-radius: 0.5rem;
 }
 
@@ -72,50 +47,9 @@ pre code {
   white-space: pre-wrap;
   word-wrap: break-word;
   font-weight: 100;
-  color:#f8f8f2;
-}
-
-a {
-  font-weight: 700;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #f8f8f2;
 }
 
 hr {
-  border: 1px solid #EEEEEE;
+  border: 1px solid #eeeeee;
 }
-
-.navItems {
-  margin-bottom: 2rem;
-  padding: 0;
-  list-style: none;
-}
-
-.navItem {
-  display: inline-block;
-  margin-right: 2rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  justify-content: center;
-}
-
-button {
-  border-radius: 8px;
-  border: none;
-  padding: 12px 28px;
-  font-size: 16px;
-  font-weight: 700;
-  background-color: #4c5eaf; 
-  color: white;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-
-button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-button:active {
-  background-color: #18265c;
-  transform: translateY(4px);
-}
-
