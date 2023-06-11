@@ -2,13 +2,14 @@
 
 The purpose of this project was to practice explore the basics of NextAuth.js and build a simple Next.js app using an OIDC/OAuth 2 (with JWTs) login flow.
 
+![Screenshot](screenshot-1.png)
+
 This app features:
 - `Google` and `AWS Cognito` as identity providers
 - Direct login via Google and a separate, custom identity provider selection screen
 - A protected sample page that requires authentication and displays different content depending on authentication status
 - An endpoint page showing the content of the session and JWT
 
-See [nextauthjs/next-auth](https://github.com/nextauthjs/next-auth/tree/main/apps/examples/nextjs) for a similar example which was used as a reference for some bits. 
 
 ## How to start
 
