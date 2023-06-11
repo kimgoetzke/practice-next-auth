@@ -1,6 +1,6 @@
 ## The NextAuth.js Practice Project
 
-The purpose of this project was to practice explore the basics of NextAuth.js and build a simple Next.js app using an OIDC/OAuth 2 (with JWTs) login flow.
+The purpose of this project was to practice the basics of NextAuth.js and build a simple Next.js app with an OIDC/OAuth 2 (with JWTs) login flow.
 
 ![Screenshot](screenshot-1.png)
 
@@ -19,7 +19,7 @@ Use the `.env.template` file as an example to create your own `.env` file. This 
 
 You will need a `clientId` and `clientSecret` for Google which you can get from the developer admin page at [https://console.cloud.google.com/](https://console.cloud.google.com/). You will need to get the same information from your AWS Cognito identity provider, however for AWS Cognito you also need the `issuer` (URL).
 
-On each identity provider, you will need to set up `http://localhost:3000` as an authorised origin and `http://localhost:3000/api/auth/callback/google` as a allowed callback URL.
+For each identity provider, you will need to set up `http://localhost:3000` as an authorised origin and `http://localhost:3000/api/auth/callback/{identity_provider_name}` as an allowed callback URL.
 
 ### Run the application
 
