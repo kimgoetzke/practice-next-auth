@@ -17,9 +17,31 @@ export const authOptions: NextAuthOptions = {
       }
     }),
     CognitoProvider({
-      clientId: process.env.COGNITO_ID,
-      clientSecret: process.env.COGNITO_SECRET,
-      issuer: process.env.COGNITO_ISSUER_URL,
+      id: "cognito",
+      name: "Cognito identity provider",
+      clientId: process.env.COGNITO_IDP_ID,
+      clientSecret: process.env.COGNITO_IDP_SECRET,
+      issuer: process.env.COGNITO_IDP_ISSUER_URL,
+      idToken: true,
+      checks: ['pkce', 'nonce'],
+      profile: (_profile) => {
+        return {
+          id: _profile.sub,
+          name: _profile.given_name + " " + _profile.family_name,
+          email: _profile.email,
+          image: null
+        };
+      },
+    }),
+    CognitoProvider({
+      id: "cognito-broker",
+      name: "Cognito identity broker",
+      clientId: process.env.COGNITO_BROKER_ID,
+      clientSecret: "",
+      issuer: process.env.COGNITO_BROKER_ISSUER_URL,
+      client: {
+        token_endpoint_auth_method: "none",
+      },
       idToken: true,
       checks: ['pkce', 'nonce'],
       profile: (_profile) => {
